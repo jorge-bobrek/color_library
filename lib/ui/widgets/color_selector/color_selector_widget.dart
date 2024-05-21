@@ -14,14 +14,51 @@ class ColorSelectorWidget extends StatefulWidget {
 }
 
 class _ColorSelectorWidgetState extends State<ColorSelectorWidget> {
+  final _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorDetail = Provider.of<ColorDetailProvider>(context);
+    _controller.text = colorDetail.color.name;
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Row(
+            children: [
+              const Text(
+                "Nombre:",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              const SizedBox(width: 20),
+              Expanded(
+                child: TextField(
+                  controller: _controller,
+                  textCapitalization: TextCapitalization.words,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    hintText: 'Nombre del color',
+                    errorText:
+                        _controller.text.isEmpty ? "No debe estar vacío" : null,
+                  ),
+                  onChanged: (str) {
+                    colorDetail.setName(str);
+                  },
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
           ColorPreviewWidget(color: colorDetail.color),
           const SizedBox(height: 20),
           Column(
@@ -31,8 +68,7 @@ class _ColorSelectorWidgetState extends State<ColorSelectorWidget> {
                 label: "R",
                 value: colorDetail.color.red,
                 color: colorDetail.color,
-                onChanged: (value) =>
-                    setState(() => colorDetail.setRed(value)),
+                onChanged: (value) => setState(() => colorDetail.setRed(value)),
               ),
               const SizedBox(height: 10),
               ColorSliderWidget(

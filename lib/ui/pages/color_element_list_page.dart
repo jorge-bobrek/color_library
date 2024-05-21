@@ -34,7 +34,7 @@ class ColorElementListPage extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (context) => ChangeNotifierProvider(
-          create: (context) => ColorDetailProvider(ColorItem(0, 0, 0)),
+          create: (context) => ColorDetailProvider(ColorItem("", 0, 0, 0)),
           child: const ColorElementDetailPage(editing: false),
         ),
       ),

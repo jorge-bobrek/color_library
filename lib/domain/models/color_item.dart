@@ -1,5 +1,6 @@
 class ColorItem {
-  ColorItem(this.red, this.green, this.blue);
+  ColorItem(this.name, this.red, this.green, this.blue);
+  String name;
   double red;
   double green;
   double blue;

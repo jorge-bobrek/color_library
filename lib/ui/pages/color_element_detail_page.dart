@@ -50,14 +50,18 @@ class _ColorElementDetailPageState extends State<ColorElementDetailPage> {
                   ActionButtonWidget(
                     text: "Guardar",
                     onPressed: () {
-                      if (isEditing) {
-                        colorList.replaceColor(colorDetail.color);
-                      } else {
-                        colorList.addColor(colorDetail.color);
+                      if (colorDetail.color.name.isNotEmpty) {
+                        if (isEditing) {
+                          colorList.replaceColor(colorDetail.color);
+                        } else {
+                          colorList.addColor(colorDetail.color);
+                        }
+                        Navigator.pop(context);
                       }
-                      Navigator.pop(context);
                     },
-                    color: Colors.green,
+                    color: colorDetail.color.name.isNotEmpty
+                        ? Colors.green
+                        : Colors.green.shade100,
                   ),
                   const Spacer(),
                 ],

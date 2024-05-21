@@ -12,13 +12,7 @@ class DecimalNumberWidget extends StatefulWidget {
 }
 
 class _DecimalNumberWidgetState extends State<DecimalNumberWidget> {
-  late TextEditingController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController();
-  }
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void didChangeDependencies() {

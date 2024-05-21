@@ -46,12 +46,25 @@ class ColorElement extends StatelessWidget {
               children: [
                 ColorCircleWidget(color: color),
                 const SizedBox(width: 25),
-                Text(
-                  "#${color.red.toUpperCasedHex()}${color.green.toUpperCasedHex()}${color.blue.toUpperCasedHex()}",
-                  style: const TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w400,
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      color.name,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    Text(
+                      "#${color.red.toUpperCasedHex()}${color.green.toUpperCasedHex()}${color.blue.toUpperCasedHex()}",
+                      style: const TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
                 ),
                 const Spacer(),
               ],

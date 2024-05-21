@@ -11,6 +11,12 @@ class ColorDetailProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  /// Change [name] value for currently selected color
+  setName(String name) {
+    _color.name = name;
+    notifyListeners();
+  }
+
   /// Change [red] value for currently selected color
   setRed(double red) {
     _color.red = red;
