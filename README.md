@@ -4,8 +4,9 @@ Un simple proyecto que nos permite guardar y consultar en un listado nuestros co
 
 ![Deslizadores](./docs/sliders.png?raw=true)
 
-Para crear o editar colores se hace uso de 3 deslizadores para los colores Rojo, Verde y Azul respectivamente, con una vista previa del color resultante al modificar cada uno de estos deslizadores, los cuales también muestran a su izquierda el valor en formato RGB.
+Para crear o editar colores se hace uso de 3 deslizadores para los colores Rojo, Verde y Azul respectivamente, con una vista previa del color resultante al modificar cada uno de estos deslizadores, los cuales también muestran a su derecha el valor en formato RGB en unos campos de texto que pueden ser editados manualmente (teniendo en cuenta que debe ser un valor numérico entre 0 y 255).
 En la parte superior se muestra un recuadro con el color resultante y su valor en Hexadecimal, el cual se mostrará en el listado de colores de la página principal una vez guardados los cambios.
+También se incluye un campo de texto obligatorio para asignarle un nombre al color y así facilitar su identificación.
 
 # Desarrollo de la App
 
