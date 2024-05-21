@@ -1,12 +1,14 @@
-import 'package:color_library/domain/extensions.dart';
-import 'package:color_library/ui/pages/color_element_detail.dart';
+import 'package:color_library/domain/extensions/number_parsing.dart';
+import 'package:color_library/domain/providers/color_detail_provider.dart';
+import 'package:color_library/ui/pages/color_element_detail_page.dart';
 import 'package:color_library/domain/models/color_item.dart';
+import 'package:color_library/ui/widgets/color_element_list/color_element/color_circle_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ColorElement extends StatelessWidget {
-  final ColorItem color;
-
   const ColorElement(this.color, {super.key});
+  final ColorItem color;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,9 @@ class ColorElement extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => ColorElementDetail(color: color)),
+            builder: ((context) => ChangeNotifierProvider(
+                create: (context) => ColorDetailProvider(color),
+                child: const ColorElementDetailPage())),
           ),
         );
       },
@@ -40,10 +44,10 @@ class ColorElement extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               children: [
-                _buildColorCircle(color),
+                ColorCircleWidget(color: color),
                 const SizedBox(width: 25),
                 Text(
-                  "#${color.red.toHex().toUpperCase()}${color.green.toHex().toUpperCase()}${color.blue.toHex().toUpperCase()}",
+                  "#${color.red.toUpperCasedHex()}${color.green.toUpperCasedHex()}${color.blue.toUpperCasedHex()}",
                   style: const TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.w400,
@@ -54,25 +58,6 @@ class ColorElement extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildColorCircle(ColorItem color) {
-    return Container(
-      width: 64,
-      height: 64,
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(
-            color.red.toInt(), color.green.toInt(), color.blue.toInt(), 1),
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.4),
-            spreadRadius: 2,
-            blurRadius: 3,
-          ),
-        ],
       ),
     );
   }

@@ -1,10 +1,8 @@
 import 'package:color_library/domain/models/color_item.dart';
 import 'package:flutter/material.dart';
 
-class ColorsInfo with ChangeNotifier {
-  final List<ColorItem> _colors = [
-    ColorItem(15, 89, 91)
-  ];
+class ColorListProvider with ChangeNotifier {
+  final List<ColorItem> _colors = [ColorItem(15, 89, 91)];
 
   /// Current list of colors
   List<ColorItem> get colors {

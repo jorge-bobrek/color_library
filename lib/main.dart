@@ -1,5 +1,5 @@
-import 'package:color_library/domain/providers/colors_info.dart';
-import 'package:color_library/ui/pages/color_element_list_view.dart';
+import 'package:color_library/domain/providers/color_list_provider.dart';
+import 'package:color_library/ui/pages/color_element_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,10 +13,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => ColorsInfo(),
+      create: (context) => ColorListProvider(),
       child: const MaterialApp(
         home: Scaffold(
-          body: Center(child: ColorElementListView()),
+          body: Center(child: ColorElementListPage()),
         ),
       ),
     );
