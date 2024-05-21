@@ -27,6 +27,7 @@ class _ColorElementDetailPageState extends State<ColorElementDetailPage> {
       appBar: AppBar(
         title: Text(isEditing ? "Editar color" : "Crear color"),
       ),
+      resizeToAvoidBottomInset: false, 
       body: SafeArea(
         child: Column(
           children: [

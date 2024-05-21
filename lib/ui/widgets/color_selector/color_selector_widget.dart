@@ -51,6 +51,10 @@ class _ColorSelectorWidgetState extends State<ColorSelectorWidget> {
                     errorText:
                         _controller.text.isEmpty ? "No debe estar vacío" : null,
                   ),
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w400,
+                  ),
                   onChanged: (str) {
                     colorDetail.setName(str);
                   },
