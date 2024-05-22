@@ -6,8 +6,8 @@ import 'package:color_library/ui/widgets/color_element_list/color_element/color_
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ColorElement extends StatelessWidget {
-  const ColorElement(this.color, {super.key});
+class ColorElementWidget extends StatelessWidget {
+  const ColorElementWidget(this.color, {super.key});
   final ColorItem color;
 
   @override

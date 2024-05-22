@@ -13,7 +13,7 @@ class ColorListWidget extends StatelessWidget {
       itemCount: colors.length,
       itemBuilder: (BuildContext context, int index) {
         final color = colors[index];
-        return ColorElement(color);
+        return ColorElementWidget(color);
       },
     );
   }
